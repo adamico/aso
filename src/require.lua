@@ -41,7 +41,7 @@ local wm_pid = 3 -- Process ID of Picotron's window manager and info bar
 --- @param message string: The format string for the error message
 --- @param exit_code number: Optional custom exit code (default is 1)
 --- @param ... any: Additional arguments to format the message
-local function wtf(message, exit_code, ...)
+local function error(message, exit_code, ...)
    local exit_code = exit_code or 1
    local error_report = debug.traceback(string.format(message, ...), 2)
 
@@ -153,7 +153,7 @@ function require(filename, alias)
          local func, err = load(src, "@"..full_filename, "t", _ENV)
 
          if not func then
-            wtf("Error loading module '"..filename.."': "..err)
+            error("Error loading module '"..filename.."': "..err, 1)
             return
          end
 
@@ -162,5 +162,5 @@ function require(filename, alias)
       end
    end
 
-   wtf("Module '"..filename.."' not found in search paths.")
+   error("Module '"..filename.."' not found in search paths.", 1)
 end

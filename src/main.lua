@@ -1,4 +1,4 @@
-include("src/globals.lua")
+include("src/constants.lua")
 include("src/require.lua")
 include("src/debugui.lua")
 include("lib/eggs.p8/eggs.lua")
@@ -10,6 +10,7 @@ add_module_path("src/")
 add_module_path("src/entities/")
 add_module_path("src/scenes/")
 add_module_path("src/systems/")
+add_module_path("src/helpers/")
 
 Class = require("middleclass")
 Stateful = require("stateful")
@@ -29,6 +30,8 @@ local GameOver = require("game_over")
 
 local starting_scene = "Play"
 local Scene = SceneManager:new()
+
+
 
 function _init()
    -- Sound = SoundManager:new(sound_enabled)
