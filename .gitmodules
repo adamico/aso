@@ -1,0 +1,6 @@
+[submodule "lib/eggs.p8"]
+	path = lib/eggs.p8
+	url = https://github.com/kikito/eggs.p8
+[submodule "lib/locus.p8"]
+	path = lib/locus.p8
+	url = https://github.com/kikito/locus.p8
